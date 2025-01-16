@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sophia/feature/views/movimentacoes/movimentacao_page.dart';
 import 'package:sophia/core/constans/colors%20and%20fonts.dart';
 
 class LoginPage extends StatefulWidget {
@@ -17,6 +18,7 @@ class _LoginPageState extends State<LoginPage> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            // Coluna para o formulário de login
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.all(32.0),
@@ -25,10 +27,16 @@ class _LoginPageState extends State<LoginPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Bem vindo de Volta!',
-                      style: Theme.of(context).textTheme.bodyLarge,
+                      'Seja bem vindo!',
+                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                            fontSize: 27, // Ajuste o tamanho da fonte
+                            fontWeight:
+                                FontWeight.bold, // Deixe o texto em negrito
+                          ),
                     ),
+
                     const SizedBox(height: 20),
+                    // Campo de texto para email
                     TextFormField(
                       decoration: const InputDecoration(
                         labelText: 'Email',
@@ -36,6 +44,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                     const SizedBox(height: 10),
+                    // Campo de texto para senha
                     TextFormField(
                       obscureText: true,
                       decoration: const InputDecoration(
@@ -44,10 +53,18 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                     const SizedBox(height: 20),
+                    // Botão de login
                     SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => MovimentacaoPage(),
+                            ),
+                          );
+                        },
                         style: ElevatedButton.styleFrom(
                           padding: const EdgeInsets.symmetric(vertical: 16),
                           backgroundColor: AppColors.primary,
@@ -59,32 +76,22 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                     const SizedBox(height: 10),
-                    Center(
-                      child: TextButton(
-                        onPressed: () {},
-                        child: const Text(
-                          'Não possui uma conta? Cadastre-se',
-                          style: TextStyle(color: Colors.blueAccent),
-                        ),
-                      ),
-                    ),
+                    // Link para cadastro
                   ],
                 ),
               ),
             ),
-            // Logo
+            // Coluna para exibir a logo
             const Expanded(
               child: Padding(
                 padding: EdgeInsets.all(32.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-  
                     Image(
-                      image: AssetImage('lib/core/assets/images/logo.png'), 
+                      image: AssetImage('lib/core/assets/images/logo.png'),
                       height: 500,
                     ),
-                    
                   ],
                 ),
               ),
