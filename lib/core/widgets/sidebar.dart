@@ -19,23 +19,20 @@ class CustomSidebar extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          DrawerHeader(
-            decoration: BoxDecoration(
-              color: AppColors.primary,
-            ),
-            child: Center(
-              child: Text(
-                'MENU',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+            child: Text(
+              'MENU',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 12,
+                fontWeight: FontWeight.bold,
               ),
             ),
           ),
           Expanded(
-            child: ListView(
+            child: Column(
               children: [
                 _buildMenuItem(
                   icon: Icons.dashboard,
@@ -55,7 +52,7 @@ class CustomSidebar extends StatelessWidget {
                   isSelected: selectedPage == 'Estoque',
                   onTap: () => onMenuItemSelected('Estoque'),
                 ),
-                Divider(color: Colors.white),
+                Spacer(), // Insere um espaço flexível para empurrar os itens seguintes para o final
                 _buildMenuItem(
                   icon: Icons.settings,
                   label: 'Configurações',

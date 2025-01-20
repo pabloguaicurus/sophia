@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sophia/core/constans/colors%20and%20fonts.dart';
 
 class MovimentacaoForm extends StatefulWidget {
   final GlobalKey<FormState> formKey;
@@ -90,17 +91,17 @@ class _MovimentacaoFormState extends State<MovimentacaoForm> {
                         .map((e) => DropdownMenuItem(value: e, child: Text(e)))
                         .toList(),
                     onChanged: (value) => setState(() => tipo = value),
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: 'Tipo de movimentação',
                       border: OutlineInputBorder(),
                     ),
                   ),
                 ),
-                SizedBox(width: 16),
+                const SizedBox(width: 16),
                 Expanded(
                   child: TextFormField(
                     controller: _dataController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: 'Data',
                       border: OutlineInputBorder(),
                     ),
@@ -118,11 +119,11 @@ class _MovimentacaoFormState extends State<MovimentacaoForm> {
                     },
                   ),
                 ),
-                SizedBox(width: 16),
+                const SizedBox(width: 16),
                 Expanded(
                   child: TextFormField(
                     controller: _valorController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: 'Valor',
                       border: OutlineInputBorder(),
                     ),
@@ -132,21 +133,21 @@ class _MovimentacaoFormState extends State<MovimentacaoForm> {
                 ),
               ],
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Row(
               children: [
                 Expanded(
                   flex: 2,
                   child: TextFormField(
                     controller: _descricaoController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: 'Descrição',
                       border: OutlineInputBorder(),
                     ),
                     onChanged: (value) => descricao = value,
                   ),
                 ),
-                SizedBox(width: 16),
+                const SizedBox(width: 16),
                 Expanded(
                   child: DropdownButtonFormField<String>(
                     value: categoria,
@@ -154,22 +155,22 @@ class _MovimentacaoFormState extends State<MovimentacaoForm> {
                         .map((e) => DropdownMenuItem(value: e, child: Text(e)))
                         .toList(),
                     onChanged: (value) => setState(() => categoria = value),
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: 'Categoria',
                       border: OutlineInputBorder(),
                     ),
                   ),
                 ),
-                SizedBox(width: 16),
+                const SizedBox(width: 16),
                 Container(
                   width: 50,
                   height: 50,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     shape: BoxShape.circle,
-                    color: Colors.blue.shade900,
+                    color: AppColors.primary,
                   ),
                   child: IconButton(
-                    icon: Icon(Icons.save, color: Colors.white),
+                    icon: const Icon(Icons.save, color: Colors.white),
                     onPressed: () {
                       if (widget.formKey.currentState!.validate()) {
                         widget.onSubmit(

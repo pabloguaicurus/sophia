@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sophia/feature/views/sidebar.dart';
+import 'package:sophia/core/widgets/sidebar.dart';
 import 'movimentacao.dart';
 import 'movimentacao_form.dart';
 import 'movimentacoes_lista.dart';
@@ -121,7 +121,7 @@ class _MovimentacaoPageState extends State<MovimentacaoPage> {
       return Column(
         children: [
           AppBar(
-            title: Text('Movimentações'),
+            title: const Text('Movimentações'),
           ),
           MovimentacaoForm(
             formKey: _formKey,
