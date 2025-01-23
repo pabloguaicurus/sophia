@@ -61,7 +61,7 @@ class CustomSidebar extends StatelessWidget {
                 ),
                 _buildMenuItem(
                   icon: Icons.logout,
-                  label: 'Log out',
+                  label: 'Sair',
                   isSelected: selectedPage == 'Log out',
                   onTap: () => onMenuItemSelected('Log out'),
                 ),
