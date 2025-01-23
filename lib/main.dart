@@ -12,10 +12,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'SOPHIA',
       debugShowCheckedModeBanner: false,
-      initialRoute: '/login', // Tela inicial é a de login
+      initialRoute: '/login',
       routes: {
-        '/login': (context) => DashboardPage(),
-        //'/movimentacao': (context) => MovimentacaoPage(),
+        '/login': (context) => LoginPage(),
         '/dashboard': (context) => DashboardPage(),
         '/movimentacoes': (context) => MovimentacaoPage(),
         '/estoque': (context) => EstoquePage(),

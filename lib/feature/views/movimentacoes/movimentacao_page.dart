@@ -121,7 +121,12 @@ class _MovimentacaoPageState extends State<MovimentacaoPage> {
       return Column(
         children: [
           AppBar(
-            title: const Text('Movimentações'),
+            title: Text(
+              'Movimentações',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+            ),
           ),
           MovimentacaoForm(
             formKey: _formKey,

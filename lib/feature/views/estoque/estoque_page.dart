@@ -110,7 +110,12 @@ class _EstoquePageState extends State<EstoquePage> {
       return Column(
         children: [
           AppBar(
-            title: Text('Estoque'),
+            title: Text(
+              'Estoque',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+            ),
           ),
           EstoqueForm(
             formKey: _formKey,

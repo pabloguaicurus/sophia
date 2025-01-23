@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
+import 'package:sophia/core/constans/colors%20and%20fonts.dart';
 import 'package:sophia/core/widgets/sidebar.dart';
 
 class DashboardPage extends StatefulWidget {
@@ -39,14 +40,6 @@ class _DashboardPageState extends State<DashboardPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Logo no canto superior esquerdo
-                Padding(
-                  padding: const EdgeInsets.all(5.0),
-                  child: Image.asset(
-                    'assets/sophia.png',
-                    height: 30, // Defina o tamanho desejado
-                  ),
-                ),
                 Expanded(
                   child: _buildPageContent(),
                 ),
@@ -72,19 +65,19 @@ class _DashboardPageState extends State<DashboardPage> {
                 children: [
                   Expanded(
                       child:
-                          InfoCard(title: "Total Balance", value: "\$632.000")),
-                  const SizedBox(width: 16),
-                  Expanded(
-                      child: InfoCard(
-                          title: "Total Entradas", value: "\$632.000")),
-                  const SizedBox(width: 16),
-                  Expanded(
-                      child: InfoCard(
-                          title: "Total Guardado", value: "\$632.000")),
+                          InfoCard(title: "Total Balance", value: "R\$4.500")),
                   const SizedBox(width: 16),
                   Expanded(
                       child:
-                          InfoCard(title: "Total Saídas", value: "\$632.000")),
+                          InfoCard(title: "Total Entradas", value: "R\$6.700")),
+                  const SizedBox(width: 16),
+                  Expanded(
+                      child: InfoCard(
+                          title: "Total Guardado", value: "R\$32.000")),
+                  const SizedBox(width: 16),
+                  Expanded(
+                      child:
+                          InfoCard(title: "Total Saídas", value: "R\$2.200")),
                 ],
               ),
             ),
@@ -103,43 +96,52 @@ class _DashboardPageState extends State<DashboardPage> {
                       child: Row(
                         children: [
                           Expanded(
-                            child: PieChart(
-                              PieChartData(
-                                sections: [
-                                  PieChartSectionData(
-                                    value: 40,
-                                    title: "40%",
-                                    color: Colors.blue,
-                                    radius: 50,
-                                  ),
-                                  PieChartSectionData(
-                                    value: 32,
-                                    title: "32%",
-                                    color: Colors.green,
-                                    radius: 50,
-                                  ),
-                                  PieChartSectionData(
-                                    value: 28,
-                                    title: "28%",
-                                    color: Colors.orange,
-                                    radius: 50,
-                                  ),
-                                ],
-                              ),
+                              child: PieChart(
+                            PieChartData(
+                              sections: [
+                                PieChartSectionData(
+                                  value: 40,
+                                  title: "40%",
+                                  color: AppColors.secondary, // Troca aqui
+                                  radius: 50,
+                                  badgePositionPercentageOffset:
+                                      1.3, // Move o texto para fora
+                                ),
+                                PieChartSectionData(
+                                  value: 32,
+                                  title: "32%",
+                                  color: const Color.fromARGB(255, 69, 88, 116),
+                                  radius: 50,
+                                  badgePositionPercentageOffset:
+                                      1.3, // Move o texto para fora
+                                ),
+                                PieChartSectionData(
+                                  value: 28,
+                                  title: "28%",
+                                  color: const Color.fromARGB(255, 49, 97, 165),
+                                  radius: 50,
+                                  badgePositionPercentageOffset:
+                                      1.3, // Move o texto para fora
+                                ),
+                              ],
                             ),
-                          ),
+                          )),
                           const SizedBox(width: 16),
                           // Legenda do gráfico de pizza
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              LegendItem(color: Colors.blue, text: "Moradia"),
+                              LegendItem(
+                                  color: AppColors.secondary,
+                                  text: "Moradia"), // Troca aqui
                               const SizedBox(height: 8),
                               LegendItem(
-                                  color: Colors.green, text: "Alimentação"),
+                                  color: const Color.fromARGB(255, 69, 88, 116),
+                                  text: "Alimentação"),
                               const SizedBox(height: 8),
                               LegendItem(
-                                  color: Colors.orange, text: "Transporte"),
+                                  color: const Color.fromARGB(255, 49, 97, 165),
+                                  text: "Transporte"),
                             ],
                           ),
                         ],
@@ -154,17 +156,15 @@ class _DashboardPageState extends State<DashboardPage> {
                       child: ListView(
                         children: [
                           TransactionItem(
-                              name: "Pinceis",
-                              value: "\$632.000",
-                              date: "20/11"),
+                              name: "Pinceis", value: "R\$200", date: "02/01"),
                           TransactionItem(
                               name: "Salário",
-                              value: "\$632.000",
-                              date: "20/11"),
+                              value: "R\$6.000",
+                              date: "05/01"),
                           TransactionItem(
                               name: "Reserva",
-                              value: "\$632.000",
-                              date: "20/11"),
+                              value: "R\$2.000",
+                              date: "08/01"),
                         ],
                       ),
                     ),
@@ -181,18 +181,18 @@ class _DashboardPageState extends State<DashboardPage> {
                 child: BarChart(
                   BarChartData(
                     barGroups: [
-                      makeBarGroup(1, 200, 150),
+                      makeBarGroup(1, 300, 250),
                       makeBarGroup(2, 180, 160),
                       makeBarGroup(3, 220, 170),
                       makeBarGroup(4, 250, 190),
-                      makeBarGroup(5, 200, 150),
-                      makeBarGroup(6, 180, 160),
+                      makeBarGroup(5, 300, 250),
+                      makeBarGroup(6, 180, 260),
                       makeBarGroup(7, 220, 170),
-                      makeBarGroup(8, 850, 190),
+                      makeBarGroup(8, 350, 290),
                       makeBarGroup(9, 200, 150),
-                      makeBarGroup(10, 180, 160),
+                      makeBarGroup(10, 180, 260),
                       makeBarGroup(11, 220, 170),
-                      makeBarGroup(12, 250, 190),
+                      makeBarGroup(12, 350, 190),
                     ],
                     titlesData: FlTitlesData(
                       bottomTitles: AxisTitles(
@@ -235,7 +235,7 @@ class _DashboardPageState extends State<DashboardPage> {
       barRods: [
         BarChartRodData(
           toY: entradas,
-          color: Colors.blue,
+          color: AppColors.primary, // Troca aqui
           width: 10,
         ),
         BarChartRodData(
@@ -275,7 +275,9 @@ class InfoCard extends StatelessWidget {
           Text(
             value,
             style: const TextStyle(
-                fontSize: 22, fontWeight: FontWeight.bold, color: Colors.blue),
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+                color: AppColors.primary), // Troca aqui
           ),
         ],
       ),

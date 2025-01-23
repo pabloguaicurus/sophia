@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sophia/feature/views/dashboard/dashboard_page.dart';
 import 'package:sophia/feature/views/movimentacoes/movimentacao_page.dart';
 import 'package:sophia/core/constans/colors%20and%20fonts.dart';
 
@@ -61,7 +62,7 @@ class _LoginPageState extends State<LoginPage> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => MovimentacaoPage(),
+                              builder: (context) => DashboardPage(),
                             ),
                           );
                         },
